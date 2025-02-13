@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
+
 // API route to handle user sign-up
 app.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
@@ -40,6 +41,8 @@ app.post('/signup', async (req, res) => {
     }
 });
 
+
+
 // Start the server
 app.listen(PORT, async () => {
     try {
@@ -49,3 +52,6 @@ app.listen(PORT, async () => {
         console.log(err);
     }
 });
+
+
+
