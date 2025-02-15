@@ -112,9 +112,4 @@ In this milestone, we focused on creating a User model to define how user data w
 3. Configured **Multer** for handling file uploads (profile pictures).
 4. Set up routes for **user registration** and **getting user details**.
 
-### To Run:
-1. Install dependencies:
-   ```bash
-   npm install
-
 
