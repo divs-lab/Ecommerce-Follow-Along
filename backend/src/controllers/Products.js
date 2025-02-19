@@ -47,13 +47,35 @@ productrouter.post('/cart',async,(req,res)=>{
         if(!findemail){
             return res.status(400).json({message:'product not there'})
         }
-        if
+        
         if(!mongoose.types.objectId.isValid(productid)){
             return res.status(400).json({message:'product does not exist'})
         }
-        const findproduct=await 
+
+        if(!quantity && quantity<0){
+            return res.status(400).json({"You don't have enough product."})
+        }
+
+        const findproduct=await Productmodel.findById(productid)
+        if(!findproduct){
+            return res.status(400).json({message:"Product does not exist"})
+        }
+
+        const cartproduct=await findemail.cart.findIndex((i)=>{
+            return i.productid===productid
+        })
+        if(cartproduct>-1){
+            findemail.cart[cartproductid].quantity+=quantity
+        }else{
+            findemail.cart.push({productid,productname,quantity})
+        }
+    }
+    catch(err){
+        console.log("Error")
     }
 })
+
+
 
 productrouter.post("/post-product",productupload.array('files'), async(req,res)=>{
     const {name, price, description, category, stock, tags, email} = req.body;
