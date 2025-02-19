@@ -15,6 +15,25 @@ const userSchema = new schema({
         minLength: [4, "Password should be greater than 4 characters"],
         select: false,
       },
+      cart:[
+        {
+        productId:{
+          type:String,
+          unique:true,
+          required:true
+        },
+        productname:{
+          type:String,
+          unique:true,
+          required:true
+        },
+        quantity:{
+          type:Number,
+          min:1,
+          required:true
+        }
+      }
+      ]
       phoneNumber:{
         type: Number,
       },

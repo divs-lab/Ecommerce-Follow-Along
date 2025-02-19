@@ -35,6 +35,48 @@ productrouter.get("/get-router", async (req,res)=>{
     }
 });
 
+
+productrouter.post('/cart',async,(req,res)=>{
+    const{email,productid,productname,quantity}
+
+    try{
+        if(!email||productid||productname||quantity){
+            return res.status(400).json({"Fill all input boxes"})
+        }
+        const findemail=await userModel.findone({email:email})
+        if(!findemail){
+            return res.status(400).json({message:'product not there'})
+        }
+        
+        if(!mongoose.types.objectId.isValid(productid)){
+            return res.status(400).json({message:'product does not exist'})
+        }
+
+        if(!quantity && quantity<0){
+            return res.status(400).json({"You don't have enough product."})
+        }
+
+        const findproduct=await Productmodel.findById(productid)
+        if(!findproduct){
+            return res.status(400).json({message:"Product does not exist"})
+        }
+
+        const cartproduct=await findemail.cart.findIndex((i)=>{
+            return i.productid===productid
+        })
+        if(cartproduct>-1){
+            findemail.cart[cartproductid].quantity+=quantity
+        }else{
+            findemail.cart.push({productid,productname,quantity})
+        }
+    }
+    catch(err){
+        console.log("Error")
+    }
+})
+
+
+
 productrouter.post("/post-product",productupload.array('files'), async(req,res)=>{
     const {name, price, description, category, stock, tags, email} = req.body;
     const image = req.file.map(file => file.path);
@@ -58,15 +100,11 @@ productrouter.post("/post-product",productupload.array('files'), async(req,res)=
             tags:tags,
             email:email
         });
-
-        
-
     }
     catch(error){
         console.log(error);
     }
     res.status(200).json({message:"Product added successfully"});
-
 });
 
 productrouter.put("/edit-product/:id", productupload.array('files', 10), async (req, res) => {
