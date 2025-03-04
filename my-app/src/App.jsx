@@ -6,6 +6,8 @@ import { Home } from './page/Home'
 import {Productform} from './components/productform'
 import { Productcardseller } from './components/productcardforseller'
 import {SingleCard} from './components/singlecard'
+import {CreateAddress} from './components/address';
+
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
       <Route path="/productform" element={<Productform/>} />
       <Route path="/my-product" element={<Productcardseller/>}/>
       <Route path="/products/:id" element={<SingleCard/>}/>
+      <Route path="/address" element={<CreateAddress/>}/>
     </Routes>
     </>
   )

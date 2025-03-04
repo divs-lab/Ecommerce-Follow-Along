@@ -11,9 +11,6 @@ router.get('/profile',async (req, res) => {
     if(!user){
         return res.status(404).json({message: "User not found"})
     }
-    res.status(200).json({message:success})
-
-    
-
-    
+    res.status(200).json({message:success})  
+}  
 )
