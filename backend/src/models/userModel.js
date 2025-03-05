@@ -33,7 +33,7 @@ const userSchema = new schema({
           required:true
         }
       }
-      ]
+      ],
       phoneNumber:{
         type: Number,
       },
