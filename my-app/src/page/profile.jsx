@@ -16,7 +16,6 @@ export default function Profile() {
 
   return (
     <div className="w-full h-max flex flex-col sm:flex-row p-5 gap-10">
-      {/* Profile Picture Section */}
       <div className="w-40 h-max flex flex-col justify-center items-center gap-y-3">
         <div className="w-full h-max text-2xl text-neutral-100 text-left">
           PICTURE
@@ -29,14 +28,11 @@ export default function Profile() {
           alt="profile"
           className="w-40 h-40 rounded-full"
           onError={(e) => {
-            e.target.onerror = null; // Prevents infinite loop if the default image also fail
+            e.target.onerror = null; 
             e.target.src = `https:.jpg`;
           }}
         />
       </div>
-
-      {/* Personal Details Section */}
-
 
       <div className="h-max md:flex-grow">
         <div className="w-full h-max flex flex-col justify-center items-center gap-y-3">
@@ -56,10 +52,6 @@ export default function Profile() {
           ))}
         </div>
       </div>
-
-
-
-       {/* Address Section */}
 
       <div className="w-full h-max my-2 p-5">
         <h1 className="text-3xl text-neutral-100">Addresses</h1>
