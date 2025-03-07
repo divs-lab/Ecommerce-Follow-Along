@@ -87,4 +87,18 @@ userrouter.post('/address', async (req, res) => {
     }
 });
 
-module.exports = userrouter;c
+
+userrouter.get('/get-address', auth, async (req, res) => {
+  const{email}=req.user
+  try {
+  const user = await userModel.findOne({ email:email });
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
+  res.status(200).json({message:"Successfully received",user:user.address})
+  } catch (error) {
+    console.log("Error in get address",err)
+  }
+})
+
+module.exports = userrouter;

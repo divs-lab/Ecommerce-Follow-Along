@@ -12,10 +12,12 @@ const auth = async(req, res, next) => {
         if(err){
             return res.status(401).json({success:false, message: "Invalid token"})
         }else{
+            const finduser = decoded.email
+            req.user = finduser
             next()
         }
     });
 
 }
 
-module.exports=auth
+module.exports = auth;

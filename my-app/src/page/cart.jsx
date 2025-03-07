@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Cart = () => {
 
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("http://localhost:3000/product/getcart")
@@ -23,6 +26,10 @@ const Cart = () => {
     
       console.log("Products:", products);
 
+    const handlePlaceOrder = () => {
+        navigate('/select-address');
+    }
+
     return (
         <div className='w-full h-screen'>
             <div className='w-full h-full justify-center items-center flex'>
@@ -36,6 +43,11 @@ const Cart = () => {
                                 <CartProduct key={product._id} {...product} />
                             ))
                         }
+                    </div>
+                    <div className='w-full p-4 flex justify-end'>
+                        <button onClick={handlePlaceOrder} className='bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600'>
+                            Place Order
+                        </button>
                     </div>
                 </div>
             </div>
