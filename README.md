@@ -1,115 +1,182 @@
-# Ecommerce-Follow-Along
-# MERN E-Commerce Store
+# E-Commerce Platform: Backend Web Development Project
 
-This is a full-stack e-commerce application built using the MERN stack (MongoDB, Express.js, React, Node.js). The app allows users to browse products, manage a shopping cart, place orders, and provides an admin panel for product and order management.
+## **Milestone 1: Project Introduction**
 
-## Table of Contents
+**Project Overview:**
+This project focuses on building a fully operational e-commerce platform using the MERN stack — MongoDB, Express, React, and Node.js. The front-end will be developed with React’s Create React App (CRA), MongoDB will serve as the database, and Node.js with Express will manage back-end server functionality.
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Folder Structure](#folder-structure)
-- [API Endpoints](#api-endpoints)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+The project will be divided into two major sections: **Frontend** and **Backend** development.
 
-## Features
+- **Frontend:** Various user-facing pages will be created, including:
+  - Login Page
+  - Sign Up Page
+  - Forgot Password Page
+  - Home Page
+  - Product Listing Page
+  - Cart Page
+  - Address Form Page
+  - Payment Page
+  - Order Confirmation Page
+  - Order History Page
+  - Help Page
+  - Error Page
+  - Product Details Page
 
-- **User Authentication**: Login, registration, and session management.
-- **Product Browsing**: Users can browse products, filter by category, and view product details.
-- **Shopping Cart**: Users can add, remove, and update quantities of products in the cart.
-- **Order Management**: Place an order, view past orders, and check order statuses.
-- **Admin Panel**: Admins can add, edit, and delete products, manage orders, and update inventory.
-- **Payment Integration**: Integration with Stripe or PayPal for secure payment processing (optional for production).
+- **Backend:** The server will manage data operations with MongoDB using Mongoose for schema consistency. API endpoints will handle CRUD operations (Create, Read, Update, Delete) through HTTP methods like `POST`, `GET`, `PUT`, `PATCH`, and `DELETE`.
 
-## Tech Stack
+We will use **bcrypt** to hash user passwords for added security, and the project structure will prioritize scalability and maintainability.
 
-- **Frontend**: React.js, React Router, Axios
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (using Mongoose)
-- **Authentication**: JSON Web Tokens (JWT)
-- **Payment Gateway**: Stripe/PayPal (optional)
-- **State Management**: Redux (optional)
+---
 
+## **Milestone 2: Frontend Setup (Login Page)**
 
-Milestone 1: Project Overview
-In Milestone 1, we focused on laying the groundwork for the e-commerce application. This included defining the project scope, setting up the tech stack (MongoDB, Express.js, React, Node.js), and establishing the basic folder structure for both the backend and frontend. We also covered the environment setup, including installing necessary dependencies and configuring the project for local development. The goal of this milestone was to ensure that the project foundation was solid and ready for the next steps in building the full application.
+In this milestone, the **Login Page** was built using React’s CRA. For an improved interface, **Tailwind CSS** was integrated for styling and **React-Icons** for visual enhancements. Tailwind’s utility-first approach ensures a responsive and modern design.
 
+The Login Page includes fields for email and password, form validation, state management, and error handling. Icons enhance usability and the overall experience.
 
-## Milestone 2: Project Setup and Login Page
+---
 
-### Summary of Achievements:
-In this milestone, we focused on setting up the foundational structure of the e-commerce application and creating a functional login page. The following tasks were completed:
+## **Milestone 3: Backend Setup and Project Structure**
 
-1. **Project Folder Structure**:
-    - Organized the project into two main directories: `frontend` and `backend` to separate the React application and Node.js server code.
+We established the foundational structure for the backend as follows:
 
-2. **React Frontend Setup**:
-    - Initialized the `frontend` directory with a new React application using `create-react-app`.
-    - Installed necessary dependencies, including `react-router-dom` for routing and `tailwindcss` for styling.
+- **`src/` Directory:** Contains server-side source files.
+  - **`config/`**: Holds environment configuration like MongoDB URL and port.
+  - **`controllers/`**: Handles request logic for different routes.
+  - **`database/`**: Connects to MongoDB via `db.js`.
+  - **`middleware/`**: Contains custom middleware like centralized error handling.
+  - **`models/`**: Defines Mongoose schemas.
+  - **`routes/`**: Sets up API endpoints.
+  - **`utils/`**: Includes helper functions like `ErrorHandler.js`.
 
-3. **Node.js Backend Setup**:
-    - Set up the `backend` directory with a basic Node.js server using Express.
-    - Configured the server to listen on port 5000, preparing for future API integrations.
+The **`index.js`** file sets up the Express app, basic routing, and server listener.
 
-4. **Tailwind CSS Configuration**:
-    - Integrated and configured Tailwind CSS in the React app for streamlined, utility-based styling.
-    - Ensured Tailwind was set up correctly for responsive design and modern styling features.
+---
 
-5. **Login Page Development**:
-    - Designed and implemented the Login Page UI using React and Tailwind CSS.
-    - Added basic form elements such as email and password inputs.
-    - Created a submit button and handled form validation to ensure basic functionality for the login page.
+## **Milestone 4: User Model, Controller, and Multer Integration**
 
+We created the **User Model** and its controller, then integrated **Multer** for handling file uploads.
 
-# Follow-Along Project - Milestone 3
+---
 
-## Backend Setup
-- **Node.js** with **Express** is used to build the backend.
-- **MongoDB** is connected using **Mongoose** to store data.
+## **Milestone 5: Missing Number Task (Small Task)**
 
-### Steps to Run
-1. Clone the repository.
-2. Run `npm install` to install dependencies.
-3. Create a `.env` file and add your MongoDB connection URI (`MONGO_URI`) and port number (`PORT`).
-4. Start the server with:
-    ```bash
-    node --watch index.js
-    ```
-5. Visit `http://localhost:5000/api/products` to see the products (if that route is set up).
+This milestone focused on solving the missing number problem in an array.
 
-### Error Handling
-All errors are caught and handled in `errorHandler.js` and sent back in a structured format.
+---
 
+## **Milestone 6: Password Encryption and User Data Storage**
 
-## Milestone 4: User Model, Controller, and File Uploads
+- **Password Hashing:** Implemented **bcrypt** to encrypt passwords during signup, storing only hashed versions in the database.
+- **User Data Management:** Ensured all user information (like name and email) is stored securely, with password encryption maintained throughout.
 
-### Summary of Achievements:
-In this milestone, we focused on creating a User model to define how user data will be structured and stored in the database, setting up a controller to manage user-related actions (such as registration and login), and implementing Multer for file uploads.
+---
 
-1. **User Model**:
-    - Created a `User` model in MongoDB using Mongoose.
-    - Defined the schema for storing user information such as `name`, `email`, `password`, and `profilePicture`.
-    - Added validations to ensure that the required fields are provided and meet specific criteria.
+## **Milestone 7: Login Endpoint Development**
 
-2. **User Controller**:
-    - Created a `UserController` to handle user-related API requests.
-    - Included basic functionality for creating a new user (`register`) and fetching user information (`getUser`).
-    - Implemented password hashing using `bcryptjs` to securely store user passwords.
+- **User Authentication:** The endpoint accepts user credentials, retrieves user data, and verifies the password using bcrypt.
+- **Password Validation:** Hashed passwords are compared for secure authentication.
 
-3. **Multer File Upload**:
-    - Set up Multer to handle file uploads (such as profile pictures).
-    - Configured Multer to save images to a specific folder on the server and ensure that only image files are uploaded.
-    - Added logic to associate uploaded files with user accounts in the database.
+---
 
+## **Milestone 8: Product Display Components**
 
-## Milestone 4: User Model, Controller, and File Uploads
+Two React components were created:
+- **Home.jsx:** Displays the product list.
+- **ProductCard.jsx:** Acts as a template for individual product information.
 
-### Achievements:
-1. Created the **User Model** with fields for name, email, password, and profile picture.
-2. Implemented the **User Controller** to handle user registration, password hashing, and fetching user data.
-3. Configured **Multer** for handling file uploads (profile pictures).
-4. Set up routes for **user registration** and **getting user details**.
+Products are dynamically mapped and displayed based on database content.
 
+---
 
+## **Milestone 9: Product Form Creation**
+
+- **Frontend Form:** A user-friendly form to input product details like name, price, description, category, and images.
+- **Form File:** Created **ProductForm.jsx** for data collection and validation.
+
+---
+
+## **Milestone 10: Product Schema and API Integration**
+
+- **Schema:** Defined **ProductModel.js** using Mongoose.
+- **API:** Developed an endpoint to handle `POST` requests for adding product data to MongoDB.
+- **File Upload:** Utilized **Multer** middleware for image handling.
+
+---
+
+## **Milestone 11 & 12: Frontend-Backend Integration**
+
+- **Data Fetching:** Updated **Products.js** to retrieve product data from MongoDB and pass it to **Home.jsx**.
+- **Form Submission:** Enhanced the product form to send data to the database.
+
+---
+
+## **Milestone 13: Product Update Feature**
+
+- **Edit Functionality:** Created an endpoint to update product data with a `PUT` request.
+- **Frontend Enhancements:** Added edit and delete buttons, with role-based visibility for sellers.
+
+---
+
+## **Milestone 14: Product Deletion and Bug Fixes**
+
+- **Delete Feature:** Implemented an endpoint to delete products by ID.
+- **Bug Fixes:** Resolved unexpected behavior and optimized routing.
+
+...
+
+## Milestone 15: Navigation Bar Implementation
+
+Navbar Creation: Developed a persistent navigation bar that appears on all pages, enhancing user navigation.
+NavLinks Added: Included links to Home, Product Form, Login, and Sign Up pages for easy access.
+Styling: Utilized Tailwind CSS to ensure a responsive and visually appealing design.
+
+## Milestone 16: Single Product Detail Page
+
+SingleProduct.jsx: Developed a dedicated page to display detailed information about individual products.
+Routing: Configured routes to navigate to the Single Product page from the product listings.
+Enhancements: Made minor adjustments to improve user experience across the site.
+
+## Milestone 17 & 18: Cart Functionality Development
+
+Cart Schema: Extended the existing schema to include cart details for each user.
+Post Request: Created an endpoint to handle adding products to the user's cart and storing them in the database.
+Multer Integration: Ensured image uploads function correctly within the cart system.
+
+### Milestone 19: Cart Page Implementation
+
+Cart Components: Developed Cart.jsx and CartComponent.jsx to render the cart interface.
+Data Fetching: Implemented fetch requests to retrieve and display products in the user's cart.
+Quantity Management: Added functionality to adjust product quantities using increment and decrement buttons.
+
+## Milestone 20: User Profile Page
+
+Profile Endpoint: Established an endpoint to retrieve and send user data to the frontend.
+Profile.jsx: Created a profile page to display user information, enhancing personalization.
+
+## Milestone 21: Address Form Creation
+
+Address.jsx: Developed a form for users to input address details, including country, state, and pincode.
+State Management: Utilized useState hook to manage form inputs.
+Form Submission: Implemented Axios to send address data to the backend and navigate to the profile page upon submission.
+
+## Milestone 22: Address Data Handling
+
+Backend Endpoint: Created an endpoint to receive and store address data from the frontend.
+JWT Authentication: Implemented JSON Web Tokens to authenticate address submissions securely.
+
+## Milestone 23: Order Placement Workflow
+
+Place Order Button: Added functionality in the cart page to initiate the order placement process.
+Select Address Page: Developed a page displaying all user addresses with an option to select a delivery address.
+Address Retrieval: Created a backend endpoint to fetch all addresses associated with a user.
+
+## Milestone 24: Order Summary and Confirmation
+Order Summary: Displayed all products included in the order along with selected delivery address and total cart value.
+Place Order Button: Implemented a final confirmation button to place the order, completing the purchase process.
+
+## Milestone 25: Backend Endpoint for Placing Orders
+Created an API endpoint to receive user, product, and address details, retrieve user _id via email, and store individual product orders with the same address in the MongoDB orders collection.
+
+## Milestone 26: Fetch User Orders Endpoint
+Built an API endpoint to fetch all orders of a user by retrieving their _id using their email and sending all associated orders in the response.
