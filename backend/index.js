@@ -14,6 +14,7 @@ const url = process.env.db_url;
 // Middleware to parse JSON request body
 app.use(express.json());
 app.use(cors());
+app.use('/order',)
 
 // Basic route for testing
 app.get('/', (req, res) => {

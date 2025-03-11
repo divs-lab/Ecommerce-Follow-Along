@@ -1,9 +1,10 @@
 
-import React, { useState } from "react";
+import {React,useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const CreateAddress = () => {
     const navigate = useNavigate();
+    
     const [country, setCountry] = useState("");
     const [city, setCity] = useState("");
     const [address1, setAddress1] = useState("");
@@ -119,4 +120,5 @@ return (
         </>
     );
 };
+
 export default CreateAddress;

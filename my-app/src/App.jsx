@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Login } from './components/login'
 import { Signup } from './components/signup'
 import { Home } from './page/Home'
-import {ProductForm, Productform} from './components/productform'
+import {ProductForm} from './components/productform'
 import { Productcardseller } from './components/productcardforseller'
 import {SingleCard} from './components/singlecard'
 import {CreateAddress} from './components/address';
@@ -15,7 +15,7 @@ import OrderConfirmation from './page/orderConfirmation'
 function App() {
 
   return (
-    <>
+  <>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/login" element={<Login/>} />
@@ -26,9 +26,9 @@ function App() {
       <Route path="/products/:id" element={<SingleCard/>}/>
       <Route path="/address" element={<CreateAddress/>}/>
       <Route path="/selectAddress" element={<SelectAddress/>}/>
-      <Route path="/order-confirm" element={OrderConfirmation}/>
-    </Routes>
-    </>
+      <Route path="/order-confirm" element={<OrderConfirmation/>}/>
+    </Routes> 
+  </>
   )
 }
 

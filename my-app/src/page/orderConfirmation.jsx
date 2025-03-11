@@ -10,7 +10,7 @@ const OrderConfirmation = () => {
   });
 
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const fetchOrderDetails = async () => {
       try {
