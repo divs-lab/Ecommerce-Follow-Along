@@ -180,3 +180,6 @@ Created an API endpoint to receive user, product, and address details, retrieve 
 
 ## Milestone 26: Fetch User Orders Endpoint
 Built an API endpoint to fetch all orders of a user by retrieving their _id using their email and sending all associated orders in the response.
+
+# Milestone 27: My Orders Page
+In this milestone, we created a "My Orders" page for the frontend of the Ecommerce-Follow-Along project. This page displays all the orders placed by the user.
