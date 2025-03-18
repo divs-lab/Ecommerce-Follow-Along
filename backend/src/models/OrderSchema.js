@@ -48,7 +48,7 @@ const orderSchema = new mongoose.Schema({
     },
     orderStatus:{
         type:String,
-        enum:['Processing','Shipped','Deliverd','Cancelled'],
+        enum:['Processing','Shipped','Delivered','Cancelled'],
         default: 'Processing'
     },
     deliverdAt: {
@@ -57,4 +57,4 @@ const orderSchema = new mongoose.Schema({
 },{timestamps:true});
 
 const orders = mongoose.model('Order', orderSchema);
-module.exports orders;
+module.exports = orders;
