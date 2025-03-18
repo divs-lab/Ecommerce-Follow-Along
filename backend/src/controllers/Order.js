@@ -62,7 +62,7 @@ orderRouter.get('/getorder',auth,async(req,res)=>{
     }
 })
 
-orderRouter.patch('/orders/cancel-order/:orderId',async(req,res)=>{
+orderRouter.patch('/orders/cancel-order/:orderId',auth,async(req,res)=>{
     try{
         const orderId = req.params.orderId
 
