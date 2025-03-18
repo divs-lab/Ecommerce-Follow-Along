@@ -27,7 +27,7 @@ orderRouter.post('/place',auth, async(req,res)=>{
             const totalAmount = item.price * item.quantity;
             const order = new order({
                 user: user._id,
-                orderItems: [item],  //each order contains a single item
+                orderItems: [item],  
                 shippingAddress,
                 totalAmount,
             });
@@ -61,6 +61,31 @@ orderRouter.get('/getorder',auth,async(req,res)=>{
         console.log(err)
     }
 })
+
+orderRouter.patch('/orders/cancel-order/:orderId',auth,async(req,res)=>{
+    try{
+        const orderId = req.params.orderId
+
+        const order = await orders.findById(orderId)
+        if(!order){
+            return res.status(404).json({message:'Order not found'})
+        }
+
+        if(order.user.toString()==['Delivered']){
+            return res.status(404).json({message:'Order already delivered'})
+        }
+
+        await orderStatus == ['Cancelled']
+        await order.save()
+
+        res.status(200).json({message:'Order cancelled successfully'})
+    }catch(err){
+        console.log(err)
+        res.status(500).json({message:'Server Error'})
+    }
+}
+)
+
 
 
 module.exports = orderRouter
