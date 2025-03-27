@@ -61,7 +61,8 @@ const userSchema = new schema({
       ],
       role:{
         type: String,
-        default: "user",
+        enum:['admin', 'user', 'seller'],
+        default: 'user',
       },
       avatar:{
         public_id: {

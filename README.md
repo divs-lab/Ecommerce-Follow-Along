@@ -18,8 +18,6 @@ The project will be divided into two major sections: **Frontend** and **Backend*
   - Payment Page
   - Order Confirmation Page
   - Order History Page
-  - Help Page
-  - Error Page
   - Product Details Page
 
 - **Backend:** The server will manage data operations with MongoDB using Mongoose for schema consistency. API endpoints will handle CRUD operations (Create, Read, Update, Delete) through HTTP methods like `POST`, `GET`, `PUT`, `PATCH`, and `DELETE`.
@@ -180,3 +178,25 @@ Created an API endpoint to receive user, product, and address details, retrieve 
 
 ## Milestone 26: Fetch User Orders Endpoint
 Built an API endpoint to fetch all orders of a user by retrieving their _id using their email and sending all associated orders in the response.
+
+# Milestone 27: My Orders Page
+We created a "My Orders" page for the frontend of the Ecommerce-Follow-Along project. This page displays all the orders placed by the user.
+
+# Milestone 28 - Cancel Order Feature
+Added a "Cancel Order" button in the My Orders page and created a backend endpoint to update order status to "Cancelled".  
+Users can cancel their orders unless they are already marked as "Cancelled". 
+
+# Milestone 29 - PayPal Integration
+In this milestone, we added an online payment option using the PayPal API. Users can now choose between COD and PayPal for payment. PayPal buttons will be displayed when the online payment option is selected. The next milestone will focus on implementing the payment functionality.
+
+# Milestone 30 - Payment Options
+Implemented PayPal API for online payments.
+Installed react-paypal-js and integrated PayPalScriptProvider.
+Configured PayPal sandbox client ID for testing transactions.
+Added PayPal payment buttons in the order confirmation page.
+
+# Milestone 31 - Global State Management with Redux
+In this milestone, we implemented global state management using Redux in our Ecommerce-Follow-Along project. We installed react-redux, created a store folder, and added store.js and userActions.js files. The Redux store was configured to manage the user's email state globally. The setEmail function was created to update the global state, and the Provider component was used to wrap the App component in index.js.
+
+# Milestone 32 - Accessing Global State with Redux
+In this milestone, we integrated Redux to store and access the user's email across all pages. We used the dispatch method in the Login page to save the email in the global state. The useSelector hook was used to retrieve the stored email in other pages, enabling seamless access to user data. This milestone reinforced Redux state management concepts and improved global state handling in our project.
