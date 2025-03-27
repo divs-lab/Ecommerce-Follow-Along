@@ -194,4 +194,8 @@ Implemented PayPal API for online payments.
 Installed react-paypal-js and integrated PayPalScriptProvider.
 Configured PayPal sandbox client ID for testing transactions.
 Added PayPal payment buttons in the order confirmation page.
+<<<<<<< HEAD
 Pushed the updated code to GitHub. 🚀
+=======
+Pushed the updated code to GitHub. 🚀
+>>>>>>> bef781c47c804a67c43e5ea473ce858ebe93b880
