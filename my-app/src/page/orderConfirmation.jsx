@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NavBar from '../components/auth/nav';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const OrderConfirmation = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { addressId, email } = location.state || {};
-    const [selectedAddress, setSelectedAddress] = useState(null);
-    const [cartItems, setCartItems] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [ addressId, email ] = location.state || {};
+    const [ selectedAddress, setSelectedAddress ] = useState(null);
+    const [ cartItems, setCartItems ] = useState([]);
+    const [ totalPrice, setTotalPrice ] = useState(0);
+    const [ loading, setLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
 
     useEffect(() => {
         if (!addressId || !email) {
@@ -162,16 +161,27 @@ const OrderConfirmation = () => {
                             <p>Cash on Delivery</p>
                         </div>
                     </div>
+                    <div>
                     <PayPalScriptProvider options={{ clientId: import.meta.env.clientId }}>
                              <PayPalButtons style={{ layout: "horizontal" }} 
                                  createOrder={(data,actions)=>{
                                     return actions.order.create({purchase_units:[{amaount:{value:totalPrice.toFixed(2)}}]})
                                  }}
-                                 onApprove={(data,actions)=>{
-                                    return actions.order.capture()
+                                 onApprove={async (data,actions)=>{
+                                    const order1 = actions.order.capture()
+                                    try{
+                                    const response = await axios.post ('http://localhost:3000/api/verifypayment',{orderId:order1.id},{isCredential:true})
+                                    if(response.data.successs){
+                                        onSuccess()
+                                    }
+                                    }catch(err){
+                                        console.log(err)
+                                    }
+                                    
                                  }}
                              >Pay with paypal </PayPalButtons>
                         </PayPalScriptProvider>
+                    </div>
                     {/* Place Order Button */}
                     <div className='flex justify-center'>
                         <button
