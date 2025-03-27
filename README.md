@@ -194,8 +194,6 @@ Implemented PayPal API for online payments.
 Installed react-paypal-js and integrated PayPalScriptProvider.
 Configured PayPal sandbox client ID for testing transactions.
 Added PayPal payment buttons in the order confirmation page.
-<<<<<<< HEAD
-Pushed the updated code to GitHub. 🚀
-=======
-Pushed the updated code to GitHub. 🚀
->>>>>>> bef781c47c804a67c43e5ea473ce858ebe93b880
+
+# Milestone 31 - Global State Management with Redux
+In this milestone, we implemented global state management using Redux in our Ecommerce-Follow-Along project. We installed react-redux, created a store folder, and added store.js and userActions.js files. The Redux store was configured to manage the user's email state globally. The setEmail function was created to update the global state, and the Provider component was used to wrap the App component in index.js.
