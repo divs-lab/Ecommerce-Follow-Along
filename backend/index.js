@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./src/database/db');
 const User = require('./src/models/userModel'); // You should create the User model
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const app = express();
 
 require('dotenv').config({
@@ -14,7 +15,7 @@ const url = process.env.db_url;
 // Middleware to parse JSON request body
 app.use(express.json());
 app.use(cors());
-app.use('/order',)
+app.use(cookieParser());
 
 // Basic route for testing
 app.get('/', (req, res) => {
