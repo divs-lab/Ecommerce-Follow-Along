@@ -187,3 +187,15 @@ We created a "My Orders" page for the frontend of the Ecommerce-Follow-Along pro
 # Milestone 28 - Cancel Order Feature
 Added a "Cancel Order" button in the My Orders page and created a backend endpoint to update order status to "Cancelled".  
 Users can cancel their orders unless they are already marked as "Cancelled". 
+
+# Milestone 29 - PayPal Integration
+In this milestone, we added an online payment option using the PayPal API. Users can now choose between COD and PayPal for payment. PayPal buttons will be displayed when the online payment option is selected. The next milestone will focus on implementing the payment functionality.
+
+# Milestone 30 - Payment Options
+Implemented PayPal API for online payments.
+Installed react-paypal-js and integrated PayPalScriptProvider.
+Configured PayPal sandbox client ID for testing transactions.
+Added PayPal payment buttons in the order confirmation page.
+
+# Milestone 31 - Global State Management with Redux
+In this milestone, we implemented global state management using Redux in our Ecommerce-Follow-Along project. We installed react-redux, created a store folder, and added store.js and userActions.js files. The Redux store was configured to manage the user's email state globally. The setEmail function was created to update the global state, and the Provider component was used to wrap the App component in index.js.
