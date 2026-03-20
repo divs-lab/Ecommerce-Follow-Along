@@ -10,6 +10,9 @@ import {CreateAddress} from './components/address';
 import Cart from './page/cart'
 import SelectAddress from './page/selectAddress'
 import OrderConfirmation from './page/orderConfirmation'
+import OrdersPage from './page/myorder'
+import Profile from './page/profile'
+import store from '../redux/redux'
 
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
       <Route path="/address" element={<CreateAddress/>}/>
       <Route path="/selectAddress" element={<SelectAddress/>}/>
       <Route path="/order-confirm" element={<OrderConfirmation/>}/>
+      <Route path="/profile" element={<Profile/>}/>
+      <Route path="/orders" element={<OrdersPage/>}/>
+      <Route path="/store" element={<store/>}/>
     </Routes> 
   </>
   )
